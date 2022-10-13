@@ -28,7 +28,7 @@ public class MySinglyLinkedList {
 
         while(current != null){
             if(current.next == null) {
-                System.out.print(current.id + "=>null");
+                System.out.println(current.id + "=>null");
             }else{
                 System.out.print(current.id + "=>");
             }
@@ -70,6 +70,23 @@ public class MySinglyLinkedList {
             current = current.next;
         }
 
+    }
+
+    int indexOf(int id){
+
+        if(isEmpty()) return -1;
+        int pos = 0;
+        Node current = head;
+
+        while(current!=null){
+            if(current.id == id) {
+                return pos;
+            }else{
+                pos++;
+                current = current.next;
+            }
+        }
+        return -1;
     }
 
 
