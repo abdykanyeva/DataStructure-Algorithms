@@ -14,6 +14,7 @@ public class SingleLinkedListApp {
         ssl.deleteById(7);
         ssl.printNodes();
         System.out.println(ssl.indexOf(1));
+        ssl.addFirst(5);
     }
 
 
