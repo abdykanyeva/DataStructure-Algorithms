@@ -105,5 +105,94 @@ public class MySinglyLinkedList {
 
     }
 
+    public int getKthItemFromTheLast(int k){
+
+        Node ptr1 = head;
+        Node ptr2 = head;
+
+        for (int i = 0; i < k - 1; i++) {
+            ptr2 = ptr2.next;
+
+        }
+        while(ptr2.next != null){
+            ptr1 = ptr1.next;
+            ptr2 = ptr2.next;
+        }
+        return ptr1.id;
+
+
+    }
+
+    public int getKthItemFromTheLast1(int k){
+
+        Node ptr1 = head;
+        Node ptr2 = head;
+        int count = 0;
+
+
+
+        if(k <= 0){
+            throw new IllegalArgumentException("Invalid value: n = " + k);
+        }
+
+        while(count < k){
+            ptr2 = ptr2.next;
+            count++;
+        }
+
+        while(ptr2!=null){
+            ptr2 = ptr2.next;
+            ptr1 = ptr1.next;
+        }
+        return ptr1.id;
+
+
+    }
+
+     void removeKthNodeFromTheEnd(int k){
+
+        if(k <= 0){
+            throw new IllegalArgumentException("Invalid input k=" + k);
+        }
+
+        Node ptr1 = head;
+        Node ptr2 = head;
+        Node prev = head;
+        int count = 0;
+
+        while(count < k){
+            ptr2 = ptr2.next;
+            count++;
+        }
+        while(ptr2!= null){
+            prev = ptr1;
+            ptr2 = ptr2.next;
+            ptr1 = ptr1.next;
+        }
+
+        // ptr1 is on the kth element from the last
+        // Do delete operation
+
+        if(ptr1 == head){
+            head = ptr1.next;
+            ptr1.next = null;
+            size--;
+        }else if(ptr1 == tail){
+            tail = prev;
+            prev.next = null;
+            size--;
+
+        }else{
+            prev.next = ptr1.next;
+            ptr1.next = null;
+            size--;
+
+        }
+
+
+
+
+    }
+
 
 }

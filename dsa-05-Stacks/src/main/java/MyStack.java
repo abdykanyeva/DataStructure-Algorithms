@@ -9,7 +9,7 @@ public class MyStack <T>{
         return bottom==null;
     }
     public void push(T item){
-        SNode <T> node = new SNode<T>(item);
+        SNode <T> node = new SNode<>(item);
         if(isEmpty()) bottom=top=node;
         else{
             top.next = node;

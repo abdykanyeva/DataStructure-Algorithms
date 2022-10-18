@@ -11,10 +11,12 @@ public class SingleLinkedListApp {
         }
 
         ssl.printNodes();
-        ssl.deleteById(7);
+        System.out.println(ssl.getKthItemFromTheLast(3));
+
+        ssl.removeKthNodeFromTheEnd(2);
         ssl.printNodes();
-        System.out.println(ssl.indexOf(1));
-        ssl.addFirst(5);
+
+
     }
 
 
