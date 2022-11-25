@@ -1,27 +1,29 @@
 public class MyTree {
 
+
     TNode root;
 
     public MyTree() {
-
     }
 
+
     void insert(int value){
+
         TNode newNode = new TNode(value);
-        if(root == null){
+
+        if(root==null){
             root=newNode;
             return;
         }
         TNode current = root;
         while(true){
-            if(value<=current.value){
+
+            if(value<= current.value){
                 if(current.leftChild == null){
-                    // if left is null insert there
                     current.leftChild = newNode;
                     break;
                 }
-
-                current=current.leftChild;
+                current = current.leftChild;
             }
             else{
                 if(current.rightChild == null){
@@ -30,7 +32,6 @@ public class MyTree {
                 }
                 current = current.rightChild;
             }
-
         }
     }
 }
