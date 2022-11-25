@@ -12,7 +12,13 @@ public class TreeApp {
         for (int i = 0; i < 8; i++) {
             tree.insert(numbers[i]);
 
+
+
         }
+        VisualizeTree.printTree(tree.root, null, false);
+
+
+
     }
 
 
@@ -36,6 +42,7 @@ public class TreeApp {
     }
 
     void postOrderTraversal(TNode root){
+        if(root ==null) return;
         postOrderTraversal(root.leftChild);
         postOrderTraversal(root.rightChild);
         System.out.println(root.value + " ");
