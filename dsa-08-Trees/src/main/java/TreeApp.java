@@ -1,65 +1,35 @@
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class TreeApp {
-
     public static void main(String[] args) {
-
-
-        MyTree tree = new MyTree();
-        int []numbers = new int[]{10, 5, 12, 3, 6, 11, 13, 2};
-
-        for (int i = 0; i < 8; i++) {
+        MyTree tree=new MyTree();
+        int[] numbers=new int[] {10, 6, 8, 20, 4, 9, 5, 17, 42, 47, 29};
+        for (int i = 0; i <11; i++) {
             tree.insert(numbers[i]);
-
-
-
         }
-        VisualizeTree.printTree(tree.root, null, false);
+        VisualizeTree.printTree(tree.root,null,false);
 
+        tree.preOrderTraversal(tree.root);
+        System.out.println();
+        System.out.println("In Order Traversal :");
+        tree.inOrderTraversal(tree.root);
+        System.out.println();
+        System.out.println("Post Order Traversal: ");
+        tree.postOrderTraversal(tree.root);
+        System.out.println();
+        System.out.println("Level Order Traversal: ");
+        tree.levelOrderTraversal(tree.root);
+        System.out.println();
+        tree.printLeaves(tree.root);
+        System.out.println();
 
+        System.out.println("Number of leaves: "+tree.countLeaves(tree.root));
+
+//        tree.printLeaves(tree.root);
+//        System.out.println();
+//        System.out.println("Number of leaves:  " +tree.countLeaves(tree.root));
+//        System.out.println("Sum of Leaf Nodes: " + tree.findSumOfLeaves(tree.root));
+//        System.out.println("Height of the tree is: "+ tree.height(tree.root));
+//        // System.out.println("Sum of Node Depths is: " + tree.calculateNodeDepthSums());
+//        System.out.println("Sum of all node values is: " + tree.calculateNodeSums());
 
     }
-
-
-    // PreOrder Traversal of the tree
-    // Root-left-right
-
-    void preOrderTraversal(TNode root){
-
-        if(root==null) return;
-        System.out.println(root.value);
-        preOrderTraversal(root.leftChild);
-        preOrderTraversal(root.rightChild);
-
-    }
-
-    void inOrderTraversal(TNode root){
-        if(root == null) return;
-        inOrderTraversal(root.leftChild);
-        System.out.println(root.value + " , ");
-        inOrderTraversal(root.rightChild);
-    }
-
-    void postOrderTraversal(TNode root){
-        if(root ==null) return;
-        postOrderTraversal(root.leftChild);
-        postOrderTraversal(root.rightChild);
-        System.out.println(root.value + " ");
-    }
-
-    void levelOrderTraversal(TNode root){
-
-        if(root==null) return;
-        Queue<TNode> queue = new LinkedList<>();
-        queue.add(root);
-
-        while(!queue.isEmpty()){
-            TNode toVisit = queue.poll();
-            System.out.println(toVisit.value+", ");
-            if(toVisit.leftChild!=null) queue.add(toVisit.leftChild);
-            if(toVisit.rightChild!=null) queue.add(toVisit.rightChild);
-        }
-    }
-
 }
