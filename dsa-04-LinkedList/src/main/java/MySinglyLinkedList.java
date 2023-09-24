@@ -195,4 +195,34 @@ public class MySinglyLinkedList {
     }
 
 
+    void addFirstData(int data){
+        Node data1 = new Node(data);
+
+        if(isEmpty()){
+            head=tail=data1;
+        }else{
+            data1.next = head;
+            head = data1;
+        }
+        size++;
+    }
+
+
+
+    public int getKthItemFromLast(int k){
+        Node ptr1 = head;
+        Node ptr2 = head;
+
+        for (int i = 0; i < k - 1; i++) {
+            ptr2 = ptr2.next;
+
+        }
+        while(ptr2!=null){
+            ptr1 = ptr1.next;
+            ptr2 = ptr2.next;
+        }
+        return ptr1.id;
+    }
+
+
 }

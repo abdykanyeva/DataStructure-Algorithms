@@ -1,4 +1,4 @@
-import com.github.fracpete.romannumerals4j.RomanNumeralFormat;
+
 
 import java.text.ParseException;
 import java.util.HashMap;
@@ -6,13 +6,7 @@ import java.util.Map;
 
 public class RomanToIntegers {
 
-    public static void main(String[] args) throws ParseException {
 
-      //  System.out.println(romanToInt("MCMXCIV"));
-
-        RomanNumeralFormat f = new RomanNumeralFormat();
-        System.out.println(f.parse("MCMXCIV"));
-    }
 
 
     public static int romanToInt(String str){
